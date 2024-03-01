@@ -8,4 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Attachment extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+
+    function lesson()
+    {
+        return $this->belongsTo(Lesson::class);
+    }
+
+    function students()
+    {
+        return $this->belongsToMany(Student::class);
+    }
+
+    function solutions()
+    {
+        return $this->hasMany(AttachmentStudent::class);
+    }
 }

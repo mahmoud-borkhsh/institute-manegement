@@ -41,4 +41,9 @@ class Student extends Authenticatable
     {
         return $this->hasOneThrough(Grade::class,Section::class);
     }
+
+    function attachments()
+    {
+        return $this->belongsToMany(Attachment::class);
+    }
 }

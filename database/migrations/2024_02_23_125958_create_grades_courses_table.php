@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('mark');
             $table->integer('tuition_fees');
+            $table->integer('sessions_count');
             $table->foreignId('grade_id')->constrained('grades');
             $table->foreignId('course_id')->constrained('courses');
             $table->timestamps();

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('number');
             $table->boolean('is_done');
-            $table->foreignId('study_plane_id')->constrained('study_planes');
+            $table->foreignId('grade_course_id')->constrained('grades_courses');
             $table->timestamps();
         });
     }
