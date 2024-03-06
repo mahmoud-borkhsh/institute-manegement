@@ -40,7 +40,19 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-    ],
+        'manager' => [
+            'driver' => 'jwt',
+            'provider' => 'managers',
+        ],
+        'teacher' => [
+            'driver' => 'jwt',
+            'provider' => 'teachers',
+        ],'student' => [
+            'driver' => 'jwt',
+            'provider' => 'students',
+        ],
+                     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -63,6 +75,16 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ], 'managers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Manager::class,
+        ],
+        'teachers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Teacher::class,
+        ], 'students' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class,
         ],
 
         // 'users' => [
