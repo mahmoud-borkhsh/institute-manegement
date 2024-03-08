@@ -9,4 +9,13 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+    public function handleResponse($data= null, $message = null, $status = null){
+        $array = [
+            'data'=>$data,
+            'message'=>$message,
+            'status'=>$status,
+        ];
+        return response($array,$status);
+    }
+
 }
