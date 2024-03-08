@@ -47,11 +47,11 @@ return [
         'teacher' => [
             'driver' => 'jwt',
             'provider' => 'teachers',
-        ],'student' => [
+        ], 'student' => [
             'driver' => 'jwt',
             'provider' => 'students',
         ],
-                     ],
+    ],
 
 
     /*
