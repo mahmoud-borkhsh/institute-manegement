@@ -22,7 +22,7 @@ class ManagerAuthMiddleware
                     'status' => 401,
                 ], 401);
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             if ($e instanceof TokenInvalidException)
                 return response([
                     'data' => null,

@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class TeacherAuthMiddleware
 {
@@ -12,14 +13,14 @@ class TeacherAuthMiddleware
     {
         try {
             JWTAuth::parseToken()->authenticate();
-            if(!auth('teacher')->user()){
+            if (!auth('teacher')->user()) {
                 return response([
                     'data' => null,
                     'message' => "Token is Invalid",
                     'status' => 401,
                 ], 401);
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             if ($e instanceof TokenInvalidException)
                 return response([
                     'data' => null,
